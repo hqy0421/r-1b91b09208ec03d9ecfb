@@ -14,6 +14,7 @@ pyexcel.Book
    .. autosummary::
    
       ~Book.__init__
+      ~Book.clean
       ~Book.get_array
       ~Book.get_bookdict
       ~Book.get_csv

@@ -214,6 +214,28 @@ class Book(BookMeta):
             the_dict.update({sheet.name: sheet.array})
         return the_dict
 
+    def clean(self, rules):
+        """Preview whole book cleaning and validation.
+
+        The declared cleaning rules are applied to private working copies
+        of every sheet first; uniqueness and cross sheet reference rules
+        are then evaluated against the cleaned composite keys.  The book
+        itself is not modified until :meth:`CleaningPreview.apply` is
+        called, and that call only succeeds when the whole book passed.
+
+        :param list rules: :class:`~pyexcel.cleaning.ColumnCleaningRule`,
+                           :class:`~pyexcel.cleaning.UniqueRule` and
+                           :class:`~pyexcel.cleaning.ReferenceRule`
+                           instances
+        :returns: a :class:`~pyexcel.cleaning.CleaningPreview` whose
+                  :meth:`~pyexcel.cleaning.CleaningPreview.error_sheet`
+                  lists every executable error as a native
+                  :class:`~pyexcel.Sheet`
+        """
+        from pyexcel.cleaning import run_cleaning
+
+        return run_cleaning(self, rules)
+
 
 def to_book(bookstream):
     """Convert a bookstream to Book"""

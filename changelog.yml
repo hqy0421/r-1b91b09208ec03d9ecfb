@@ -2,6 +2,13 @@ name: pyexcel
 organisation: pyexcel
 releases:
 - changes:
+  - action: added
+    details:
+    - "whole book cleaning and validation entry point: Book.clean() previews ColumnCleaningRule, UniqueRule and ReferenceRule rules on private working copies, reports every executable error in a native 'cleaning report' sheet, marks conversion failures as blocking instead of misreporting missing associations, and only applies cleaned values back to the original book in one transaction when the whole book passes"
+    - "strict built-in cleaners (strip, str, int, float) that keep None, empty strings, booleans and numbers distinguishable, while the legacy format interface keeps its original lenient semantics"
+  version: 0.7.8
+  date: tbd
+- changes:
   - action: Fixed
     details:
     - "`#310`: fix broken indentation in iget_records memory-reduction patch"

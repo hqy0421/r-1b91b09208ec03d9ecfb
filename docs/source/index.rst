@@ -365,6 +365,7 @@ New tutorial
    renderers
    sheet
    book
+   cleaning
    database
 
 Old tutorial

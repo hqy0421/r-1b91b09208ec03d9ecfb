@@ -100,8 +100,29 @@ Cookbook
    split_a_book
    extract_a_sheet_from_a_book
 
-   
-Book 
+
+Whole book cleaning and validation
+===================================
+
+See :doc:`cleaning` for the full tutorial.  Rules clean declared key
+columns first, then check uniqueness and cross sheet references against
+the cleaned composite keys.  Every error is returned as a native
+:class:`Sheet`, conversion failures are marked as blocking, and cleaned
+values are applied back in one transaction only when the whole book
+passes.
+
+.. autosummary::
+   :toctree: generated/
+
+   run_cleaning
+   ColumnCleaningRule
+   UniqueRule
+   ReferenceRule
+   CleaningPreview
+   CleaningError
+
+
+Book
 =====
 
 Here's the entity relationship between Book, Sheet, Row and Column
@@ -124,6 +145,14 @@ Attribute
 
    Book.number_of_sheets
    Book.sheet_names
+
+Cleaning and validation
+------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   Book.clean
 
 Conversions
 -------------

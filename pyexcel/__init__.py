@@ -27,6 +27,15 @@ from .core import (
     isave_book_as,
 )
 from .sheet import Sheet
+from .cleaning import (
+    CleaningError,
+    CleaningPreview,
+    CleaningRule,
+    ColumnCleaningRule,
+    UniqueRule,
+    ReferenceRule,
+    run_cleaning,
+)
 
 # flake8: noqa
 from .cookbook import (
